@@ -12,7 +12,7 @@ module.exports = app => {
   router.get('/api/user/get_userinfo', _jwt, controller.user.getUserInfo); 
   // 修改用户个性签名
   router.post('/api/user/edit_userinfo', _jwt, controller.user.editUserInfo); 
-  router.get('/api/user/test', _jwt, controller.user.test);
+  router.post('/api/user/modify_pass', _jwt, controller.user.modifyPass); // 修改用户密码
   // 上传图片
   router.post('/api/upload', controller.upload.upload);
 
@@ -23,4 +23,6 @@ module.exports = app => {
   router.post('/api/bill/delete', _jwt, controller.bill.delete); // 删除账单
 
   router.get('/api/bill/data', _jwt, controller.bill.data); // 获取数据
+
+  router.get('/api/type/list', _jwt, controller.type.list); // 获取消费类型列表
 };
